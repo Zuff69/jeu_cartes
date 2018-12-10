@@ -1,25 +1,27 @@
-﻿class cls_jeu_cartes {
+﻿class clsJeuCartes54 {
 
     constructor(vide) {
-        //if (new.target === cls_jeu_cartes) {
-        //    throw new TypeError("Cannot construct Abstract instances directly");
-        //}
-        if (this.constructor === cls_jeu_cartes) {
-            throw new TypeError('Abstract class "Widget" cannot be instantiated directly.');
-        }
         this.cartes = [];
         if (!vide) {
             for (let val = 2; val < 15; val++) {
                 for (let coul = 0; coul < 4; coul++) {
-                    let nouvelleCarte = new Carte(val, coul);
+                    let nouvelleCarte = new clsCarte54(val, coul);
                     this.cartes.push(nouvelleCarte);
                 }
             }
         }
     }
 
-    melanger() { 
-        for(let j, x, i = this.cartes.length; i; j = Math.floor(Math.random() * i), x = this.cartes[--i], this.cartes[i] = this.cartes[j], this.cartes[j] = x);
+    melanger() {
+        this.shuffle(this.cartes);
+    }
+
+    shuffle(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
     }
 
     tirer() { 
@@ -39,20 +41,14 @@
         }
     }
 
-    afficher(divAffichage) { 
-        for (let i = 0; i < this.cartes.length; i++) { 
-            var carteAAfficher = this.cartes[i];
-            carteAAfficher.afficher(divAffichage); 
-        }
+    afficher(divAffichage) {
+        this.cartes.forEach(function (carteAAfficher) {
+            carteAAfficher.afficher(divAffichage);
+        });
     } 
 }
 
-//function paquet() 
-//{ 
-//	  jeuCartes.apply(this, arguments);
-//}
-
-class cls_paquet extends cls_jeu_cartes {
+class clsPaquet extends clsJeuCartes54 {
     constructor(vide) {
         super(vide);
     }

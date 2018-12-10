@@ -1,11 +1,13 @@
-﻿class cls_carte {
+﻿class clsCarte {
+  
     constructor(valeur, couleur){
-        //this.valeur = valeur;
-        //this.couleur = couleur;
-        //this.visible = false;
-        privateProps(this, { valeur: valeur, couleur: couleur, visible: false });
+        this.valeur = valeur;
+        this.couleur = couleur;
+        this.visible = false;
+        //privateProps(this, { valeur: valeur, couleur: couleur, visible: false });
     }
 
+/*
     get valeur() {
         return this.valeur;
     }
@@ -21,11 +23,31 @@
     set visible(visible) {
         this.visible = visible;
     }
- 
+*/
+
+}
+
+
+class clsCarte54 extends clsCarte {
+
+    constructor(valeur, couleur) {
+        super(valeur, couleur);
+    }
+
+    ajouterElement(texteAAfficher, divAffichage) {
+        let newDiv = document.createElement("div");
+        let newContent = document.createTextNode(texteAAfficher);
+        newDiv.appendChild(newContent);
+        let currentDiv = document.getElementById(divAffichage);
+        currentDiv.appendChild(newDiv);
+
+    }
+
     afficher(divAffichage) {
         let valeurs = [null, null, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Valet", "Dame", "Roi", "As"];
         let couleurs = ["Coeur", "Carreau", "Trefle", "Pique"];
-        document.getElementById(divAffichage).innerHTML += valeurs[this.valeur] + " de  " + couleurs[this.couleur] + "<br/>";
+        let getMessage = () => `${valeurs[this.valeur]} de ${couleurs[this.couleur]}`;
+        this.ajouterElement(getMessage(), divAffichage);
     }
-
 }
+

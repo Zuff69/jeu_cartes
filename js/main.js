@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //let test2 = new cls_carte(7, 1);
     //test2.afficher("plateau");
 
-    var j = new cls_paquet(false);
+    var j = new clsPaquet(false);
     j.melanger();
     j.afficher("plateau");
     //for (i = 0; i < 60; i++) { 
