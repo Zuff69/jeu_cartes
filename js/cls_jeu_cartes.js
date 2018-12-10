@@ -1,11 +1,11 @@
-﻿class clsJeuCartes54 {
+﻿class JeuCartes54 {
 
     constructor(vide) {
         this.cartes = [];
         if (!vide) {
             for (let val = 2; val < 15; val++) {
                 for (let coul = 0; coul < 4; coul++) {
-                    let nouvelleCarte = new clsCarte54(val, coul);
+                    let nouvelleCarte = new Carte54(val, coul);
                     this.cartes.push(nouvelleCarte);
                 }
             }
@@ -13,15 +13,11 @@
     }
 
     melanger() {
-        this.shuffle(this.cartes);
-    }
-
-    shuffle(a) {
-        for (let i = a.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
+        for (let i = this.cartes.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let carte = this.cartes.splice(j, 1);
+            this.cartes.push(carte.pop());
         }
-        return a;
     }
 
     tirer() { 
@@ -48,7 +44,7 @@
     } 
 }
 
-class clsPaquet extends clsJeuCartes54 {
+class Paquet extends JeuCartes54 {
     constructor(vide) {
         super(vide);
     }

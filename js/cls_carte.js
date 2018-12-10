@@ -1,4 +1,4 @@
-﻿class clsCarte {
+﻿class Carte {
   
     constructor(valeur, couleur){
         this.valeur = valeur;
@@ -28,7 +28,7 @@
 }
 
 
-class clsCarte54 extends clsCarte {
+class Carte54 extends Carte {
 
     constructor(valeur, couleur) {
         super(valeur, couleur);

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //let test2 = new cls_carte(7, 1);
     //test2.afficher("plateau");
 
-    var j = new clsPaquet(false);
+    var j = new Paquet(false);
     j.melanger();
     j.afficher("plateau");
     //for (i = 0; i < 60; i++) { 
@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
 }, false);
 
 
+/*
 var onload = function () {
 	
-
-
 }
+*/
