@@ -1,3 +1,5 @@
+import { Paquet } from 'cls_jeu_cartes.js';
+
 document.addEventListener("DOMContentLoaded", function () {
 
     //let test = new cls_carte(11, 3);

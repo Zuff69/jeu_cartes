@@ -1,4 +1,6 @@
-﻿class JeuCartes54 {
+﻿import { Carte54 } from 'cls_carte.js';
+
+class JeuCartes54 {
 
     constructor(vide) {
         this.cartes = [];
